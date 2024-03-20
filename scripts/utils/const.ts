@@ -1,0 +1,1 @@
+export const SEPOLIA_NETWORK_ID = 11155111;

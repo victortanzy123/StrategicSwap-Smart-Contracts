@@ -1,0 +1,66 @@
+{
+  "name": "erc4337-contracts",
+  "description": "Implementation based on ERC-4337 standards for Account Abstraction",
+  "license": "",
+  "version": "1.0.0",
+  "main": "hardhat.config.ts",
+  "files": [
+    "contracts/",
+    "typechain-types/",
+    "build/artifacts/contracts/",
+    "deployments/"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
+    "@nomicfoundation/hardhat-ethers": "^3.0.4",
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@typechain/ethers-v5": "^9.0.0",
+    "@typechain/hardhat": "^4.0.0",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^16.4.13",
+    "chai": "^4.3.6",
+    "ethers": "^5.6.8",
+    "hardhat": "^2.9.6",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "prettier": "^3.0.0",
+    "prettier-plugin-solidity": "latest",
+    "solc": "^0.8.21",
+    "solhint": "^3.4.1",
+    "solidity-coverage": "^0.7.21",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.3.1",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "compile": "yarn hardhat compile",
+    "size": "yarn hardhat size-contracts",
+    "clean": "yarn hardhat clean",
+    "fcompile": "yarn clean && yarn compile",
+    "format": "prettier -w '(interfaces|src|scripts|test|deployments)/**/*.(sol|json|ts)'",
+    "test:main": "npx hardhat test scripts/test/strategic-swap-test.ts",
+    "test:factory": "npx hardhat test scripts/test/strategic-swap-factory-test.ts",
+    "deploy:sepolia": "npx hardhat run --network sepolia scripts/deploy/index.ts",
+    "deploy-strategies:sepolia": "npx hardhat run --network sepolia scripts/deploy/erc4626-strategies.ts",
+    "deploy-factory:sepolia": "npx hardhat run --network sepolia scripts/deploy/strategic-swap-factory.ts"
+  },
+  "packageManager": "yarn@3.3.1",
+  "dependencies": {
+    "@axelar-network/axelar-cgp-solidity": "^4.5.0",
+    "@axelar-network/axelar-gmp-sdk-solidity": "^5.0.0",
+    "@chainlink/contracts": "^0.6.1",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@openzeppelin/contracts": "4.9.3",
+    "@openzeppelin/contracts-upgradeable": "4.7.3",
+    "@openzeppelin/hardhat-upgrades": "^1.19.0",
+    "@pendle/core-v2": "^2.27.0",
+    "@uniswap/v3-periphery": "^1.0.1",
+    "@uniswap/v3-sdk": "^3.9.0",
+    "dotenv": "^16.3.1"
+  }
+}
